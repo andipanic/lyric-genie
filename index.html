@@ -3,20 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <title>Lyric Genie</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Reenie+Beanie" rel="stylesheet">
     <style media="screen">
       .masthead-brand {
         font-family: 'Great Vibes', cursive;
-        font-size: 5em;
+        font-size: 4em;
       }
 
       .title-box {
         font-family: 'Reenie Beanie', cursive;
         font-size: 2.2em;
       }
+
       .lyric-box {
         font-family: 'Reenie Beanie', cursive;
         font-size: 2em;
@@ -36,11 +36,10 @@
       </div>
 
       <main role="main" class="inner cover">
-
         <form class="main-form col-sm-offset-3 d-flex justify-content-center" action="index.html" method="post">
           <div class="form-group">
-            <textarea id="titleBox" class="form-control title-box" name="title-box" rows="1" cols="80" placeholder="Verse, bridge, chorus..."></textarea>
-            <textarea id="lyricBox" class="form-control lyric-box text-center" rows="4" name="lyric-box" cols="80" placeholder="Song lyrics..."></textarea>
+            <textarea id="titleBox" class="form-control title-box font-weight-bold" name="title-box" rows="1" cols="50" placeholder="Verse, bridge, chorus..."></textarea>
+            <textarea id="lyricBox" class="form-control lyric-box text-center" rows="4" name="lyric-box" cols="50" placeholder="Song lyrics..."></textarea>
           </div>
         </form>
         <p class="lead">
@@ -61,14 +60,17 @@
     <script type="text/javascript">
     $(document).ready(function(){
       $('#addSection').click(function() {
-        var tileBox = $('#titleBox').val();
-        var lyricBox = $('#lyricBox').val();
+        var tileBox = $('#titleBox').val()
+        var lyricBox = $('#lyricBox').val()
         $.each(titleBox.value.split('\n'), function(k) {
           $('#sheet').append( '<u class="title-box font-weight-bold">' + titleBox.value.split('\n')[k] + '</u>')
         })
         $.each(lyricBox.split('\n'), function(k) {
           $('#sheet').append( '<p class="lyric-box text-center">' + lyricBox.split('\n')[k] + '</p>')
         })
+        $('#sheet').append('<br />')
+        $('#titleBox').val('')
+        $('#lyricBox').val('')
       })
     });
     </script>
